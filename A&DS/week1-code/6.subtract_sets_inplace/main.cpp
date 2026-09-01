@@ -38,7 +38,7 @@ int main() {
 void subtract_sets_inplace(std::vector<int> &a, const std::vector<int> &b)
 {
     
-    std::vector<int> res;
+    //std::vector<int> res;
     size_t write_pointer = 0;
     size_t left = 0;
     size_t right = 0;

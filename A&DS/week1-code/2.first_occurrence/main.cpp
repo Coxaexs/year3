@@ -1,6 +1,20 @@
 #include <iostream>
 #include <vector>
 #include "utils.h"
+size_t binary_search(const std::vector<int>& vec, int value) {
+    int left = 0;
+    int right = vec.size();
+        while (left < right) {
+        int mid = left + (right - left) / 2;
+
+        if (vec[mid] < value)
+            left = mid + 1;
+        else
+            right = mid;
+    }
+    // TODO: implement (and use) this function!
+    return left;
+}
 
 int main() {
     // TODO: write a program that receives two arguments over stdin, separated by spaces:
@@ -20,6 +34,7 @@ int main() {
     // get the input
     std::cin >> array >> number;
 
+    std::cout << binary_search(array, number) <<std::endl;
     // TODO: print the index of the first occurrence of the integer if it was found,
     //       or, if it was not found, the index at which the number should be inserted
     //       to maintain sorted order

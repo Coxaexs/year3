@@ -22,4 +22,56 @@ int main() {
     // Use the two-pointer technique to achieve this result!
 
     // See the utils.h file for writing / reading vectors
+         std::vector<int> array{};
+
+    // the string to hold the command to read
+
+    // the integer following the command
+    std::vector<int> array2{};
+
+    // get the input
+    std::cin >> array >> array2;
+    subtract_sets_inplace(array, array2);
+    std::cout<<array<<std::endl;
+}
+
+void subtract_sets_inplace(std::vector<int> &a, const std::vector<int> &b)
+{
+    
+    std::vector<int> res;
+    size_t write_pointer = 0;
+    size_t left = 0;
+    size_t right = 0;
+    while (left < a.size())
+    {
+        if (right == b.size())
+        {
+            a[write_pointer] = a.at(left);
+            write_pointer++;
+            //res.push_back(a.at(left));
+            left++;
+        }
+        
+        else if (a.at(left) == b.at(right))
+        {
+            left++;
+            if (right < b.size())
+            {
+                right++;   
+            }
+            
+        }
+        else if (a.at(left) < b.at(right))
+        {
+            a[write_pointer] = a.at(left);
+            write_pointer++;
+            //res.push_back(a.at(left));
+            left++;
+        }
+        else if (a.at(left) > b.at(right))
+        {
+            right++;
+        }
+    }
+    a.resize(write_pointer);
 }

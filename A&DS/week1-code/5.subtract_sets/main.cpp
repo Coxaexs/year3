@@ -31,12 +31,15 @@ int main() {
 std::vector<int> substract(const std::vector<int> &arr1, const std::vector<int> &arr2)
 {
     std::vector<int> res;
+   // size_t write_pointer = 0;
     size_t left = 0;
     size_t right = 0;
     while (left < arr1.size())
     {
         if (right == arr2.size())
         {
+            //arr2[write_pointer] = arr1.at(left);
+            //write_pointer
             res.push_back(arr1.at(left));
             left++;
         }
